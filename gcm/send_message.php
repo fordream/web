@@ -14,8 +14,10 @@ if (isset($_GET["regId"]) && isset($_GET["message"])) {
     $gcm = new GCM();
 	$id = "0";
     $registatoin_ids = array($regId);
-   // $message = array( "id" => $id,"message" => $message1 );
-    $message = array( "id" => $id,"message" => base64_encode($messageForSend) );
+	// $message = array( "id" => $id,"message" => $message1 );
+	// $message = array( "id" => $id,"message" => base64_encode($messageForSend) );
+	//$message = array( "id" => $id,"message" => $message1 );
+	$message = array( "id" => $id,"message" => $messageForSend);
     $result = $gcm->send_notification($registatoin_ids, $message);
  
     echo $result;
